@@ -11,36 +11,59 @@
       --clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
       clip-path: var(--clip-path);
     }
+
+    .hover-perspective-lg,
+    .hover-perspective-md {
+      transition: transform 0.5s ease;
+      transform: translateZ(0);
+    }
+    #card:hover .hover-perspective-lg {
+      transform: translateZ(35px);
+    }
+    #card:hover .hover-perspective-md {
+      transform: translateZ(25px);
+    }
+    #card:hover .hover-shadow {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
   </style>
   <body class="min-h-screen flex justify-center items-center bg-slate-900">
     <div
       data-tilt
       id="card"
-      class="max-w-sm w-full bg-red-500 rounded-3xl relative"
+      class="max-w-sm w-full relative rounded-3xl bg-black"
       style="aspect-ratio: 2/3; transform-style: preserve-3d"
     >
-      <div
-        class="w-14 h-14 bg-red-900 flex items-center justify-center octagon p-2 m-5"
-        style="transform: translateZ(25px)"
-      >
-        <!-- front default -->
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
-          alt="Pikachu"
-          class="w-full"
-        />
+      <img
+        class="absolute inset-0 w-full h-full object-cover rounded-3xl overflow-hidden"
+        src="https://pm1.aminoapps.com/7243/8ee17e7a8790303410b30a2fbcb18183fc12166er1-623-499v2_hq.jpg"
+      />
+      <img
+        src="https://clipart-library.com/image_gallery2/Fire-Flames-PNG-Image.png"
+        class="absolute inset-x-0 bottom-0 opacity-80 hover-perspective-lg z-10"
+      />
+      <div class="relative z-0 m-5" style="transform-style: preserve-3d">
+        <div class="w-14 h-14 bg-red-900 flex items-center justify-center octagon p-2 hover-perspective-md">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+            alt="Pikachu"
+            class="w-full"
+          />
+        </div>
+        <div
+          class="w-14 h-14 bg-black brightness-0 blur-lg absolute top-0 -z-10 opacity-50 transition-opacity hover-shadow"
+        ></div>
       </div>
       <div class="z-0 relative" style="transform-style: preserve-3d">
         <img
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
           alt="Pikachu"
-          style="transform: translateZ(50px)"
+          class="hover-perspective-md"
         />
         <img
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
-          alt="Pikachu"
-          style="filter: blur(25px) brightness(0)"
-          class="absolute top-0"
+          class="absolute top-0 brightness-0 blur-lg opacity-50 -z-10 hover-shadow transition-opacity"
         />
       </div>
     </div>
