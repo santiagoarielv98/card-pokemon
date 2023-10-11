@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <style>
+    .octagon {
+      --clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      clip-path: var(--clip-path);
+    }
+  </style>
+  <body class="min-h-screen flex justify-center items-center bg-slate-900">
+    <div
+      data-tilt
+      id="card"
+      class="max-w-sm w-full bg-red-500 rounded-3xl relative"
+      style="aspect-ratio: 2/3; transform-style: preserve-3d"
+    >
+      <div
+        class="w-14 h-14 bg-red-900 flex items-center justify-center octagon p-2 m-5"
+        style="transform: translateZ(25px)"
+      >
+        <!-- front default -->
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+          alt="Pikachu"
+          class="w-full"
+        />
+      </div>
+      <div class="z-0 relative" style="transform-style: preserve-3d">
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+          alt="Pikachu"
+          style="transform: translateZ(50px)"
+        />
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+          alt="Pikachu"
+          style="filter: blur(25px) brightness(0)"
+          class="absolute top-0"
+        />
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
