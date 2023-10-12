@@ -7,63 +7,38 @@
     <title>Vite + TS</title>
   </head>
   <style>
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+
     .octagon {
       --clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
       clip-path: var(--clip-path);
     }
-
-    .hover-perspective-lg,
-    .hover-perspective-md {
-      transition: transform 0.5s ease;
-      transform: translateZ(0);
-    }
-    #card:hover .hover-perspective-lg {
-      transform: translateZ(35px);
-    }
-    #card:hover .hover-perspective-md {
-      transform: translateZ(25px);
-    }
-    #card:hover .hover-shadow {
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
   </style>
   <body class="min-h-screen flex justify-center items-center bg-slate-900">
-    <div
-      data-tilt
-      id="card"
-      class="max-w-sm w-full relative rounded-3xl bg-black"
-      style="aspect-ratio: 2/3; transform-style: preserve-3d"
-    >
-      <img
-        class="absolute inset-0 w-full h-full object-cover rounded-3xl overflow-hidden"
-        src="https://pm1.aminoapps.com/7243/8ee17e7a8790303410b30a2fbcb18183fc12166er1-623-499v2_hq.jpg"
-      />
-      <img
-        src="https://clipart-library.com/image_gallery2/Fire-Flames-PNG-Image.png"
-        class="absolute inset-x-0 bottom-0 opacity-80 hover-perspective-lg z-10"
-      />
-      <div class="relative z-0 m-5" style="transform-style: preserve-3d">
-        <div class="w-14 h-14 bg-red-900 flex items-center justify-center octagon p-2 hover-perspective-md">
-          <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
-            alt="Pikachu"
-            class="w-full"
-          />
-        </div>
-        <div
-          class="w-14 h-14 bg-black brightness-0 blur-lg absolute top-0 -z-10 opacity-50 transition-opacity hover-shadow"
-        ></div>
-      </div>
-      <div class="z-0 relative" style="transform-style: preserve-3d">
+    <div id="card" class="w-full max-w-xs rounded-[18px] shadow-lg relative aspect-[2/3] preserve-3d" data-tilt>
+      <div class="absolute inset-0 flex justify-center items-center preserve-3d">
         <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
-          alt="Pikachu"
-          class="hover-perspective-md"
+          class="w-[97%] h-[97%] blur-sm rounded-xl"
+          src="https://pm1.aminoapps.com/7243/8ee17e7a8790303410b30a2fbcb18183fc12166er1-623-499v2_hq.jpg"
         />
         <img
+          class="w-full h-full absolute inset-0"
+          style="transform: translateZ(15px)"
+          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5a4a720b-c3e0-4186-86a9-37db7362fea8/ddrp7d5-3f45a3a7-6fa9-4136-b9c5-0ed25d6387fa.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVhNGE3MjBiLWMzZTAtNDE4Ni04NmE5LTM3ZGI3MzYyZmVhOFwvZGRycDdkNS0zZjQ1YTNhNy02ZmE5LTQxMzYtYjljNS0wZWQyNWQ2Mzg3ZmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.m-mZEvVl7hKnNgC9qTAFc6dDnCMRM1hi07RPsiw84wc"
+        />
+        <img
+          class="absolute top-10 left-4"
+          style="transform: translateZ(20px)"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+          width="32"
+          height="32"
+        />
+        <img
+          class="absolute top-1/2 inset-0"
+          style="transform: translateZ(25px) translateY(-50%)"
           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
-          class="absolute top-0 brightness-0 blur-lg opacity-50 -z-10 hover-shadow transition-opacity"
         />
       </div>
     </div>
